@@ -4,10 +4,9 @@ import (
 	"log"
 	"time"
 
-	"gopkg.in/mgo.v2"
 	"github.com/sandangel/go-recipes/chap8/chap8-7/model"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"os/user"
 )
 
 var mgoSession *mgo.Session
@@ -50,7 +49,7 @@ func (store MongoUserStore) AddUser(user model.User) error {
 	var existUser model.User
 	err := userCol.FindId(bson.M{"email": user.Email}).One(&existUser)
 	if err != nil {
-		if err == mgo.ErrNotFound{
+		if err == mgo.ErrNotFound {
 			log.Fatalf("Email is unique: %v", err)
 		}
 	}

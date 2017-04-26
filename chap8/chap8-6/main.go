@@ -1,23 +1,23 @@
 package main
 
 import (
-	"net/http"
 	"encoding/json"
 	"github.com/gorilla/mux"
+	"net/http"
 )
 
 type User struct {
 	FirstName string `json:"firstname"`
-	LastName string `json:"lastname"`
-	Email string `json:"email"`
+	LastName  string `json:"lastname"`
+	Email     string `json:"email"`
 }
 
-func getUsers(w http.ResponseWriter, r *http.Request)  {
+func getUsers(w http.ResponseWriter, r *http.Request) {
 	data := []User{
 		User{
-			FirstName:"San",
-			LastName:"Nguyen",
-			Email:"vinhsannguyen91@gmail.com",
+			FirstName: "San",
+			LastName:  "Nguyen",
+			Email:     "vinhsannguyen91@gmail.com",
 		},
 	}
 	users, err := json.Marshal(data)

@@ -1,14 +1,14 @@
 package main
 
 import (
-	"testing"
+	"fmt"
 	"github.com/gorilla/mux"
 	"net/http"
 	"net/http/httptest"
-	"fmt"
+	"testing"
 )
 
-func TestGetUsers(t *testing.T)  {
+func TestGetUsers(t *testing.T) {
 	r := mux.NewRouter()
 	r.HandleFunc("/users", getUsers).Methods("GET")
 	req, err := http.NewRequest("GET", "/users", nil)
@@ -22,7 +22,7 @@ func TestGetUsers(t *testing.T)  {
 	}
 }
 
-func TestGetUsersWithServer(t *testing.T)  {
+func TestGetUsersWithServer(t *testing.T) {
 	r := mux.NewRouter()
 	r.HandleFunc("/users", getUsers).Methods("GET")
 	server := httptest.NewServer(r)
